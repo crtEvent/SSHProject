@@ -22,6 +22,10 @@
 		<appender-ref ref="console"/>
 	</logger>
 	
+	<!-- <logger name="com.houseledger.app">
+		<level value="info" />
+	</logger> -->
+	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />

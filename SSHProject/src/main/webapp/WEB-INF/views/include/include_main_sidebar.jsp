@@ -1,85 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-      <img src="<c:url value="/resources/adminLTE/dist/img/AdminLTELogo.png"/>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+	<!-- Brand Logo -->
+	<a href="#" class="brand-link"> <img
+		src="<c:url value="/resources/adminLTE/dist/img/AdminLTELogo.png"/>"
+		alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+		style="opacity: .8"> <span class="brand-text font-weight-light">AdminLTE
+			3</span>
+	</a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="<c:url value="/resources/adminLTE/dist/img/user2-160x160.jpg"/>" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">${userSession.getUser_id() }</a>
-        </div>
-      </div>
+	<!-- Sidebar -->
+	<div class="sidebar">
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-			   
-          <li class="nav-item">
-            <a href="<c:url value='/ledger/details.do'/>" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-				가계부 내역
-              </p>
-            </a>
-          </li>
-		  
-		  <li class="nav-item">
-            <a href="<c:url value='/ledger/calendar.do'/>" class="nav-link">
-              <i class="nav-icon fas fa-calendar-alt"></i>
-              <p>
-				가계부 달력
-              </p>
-            </a>
-          </li>
-		  
-		  <li class="nav-item menu-open">
-            <a href="<c:url value='/stats/category.do'/>" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-				가계부 통계
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-            	<li class="nav-item">
-            		<a href="<c:url value='/stats/category.do'/>" class="nav-link">
-            			<i class="far fa-circle nav-icon"></i>
-            			<p>분류별 통계</p>
-            		</a>
-            	</li>
-            	<li class="nav-item">
-            		<a href="<c:url value='/stats/yearly.do'/>" class="nav-link">
-            			<i class="far fa-circle nav-icon"></i>
-            			<p>연간 통계</p>
-            		</a>
-            	</li>
-            </ul>
-          </li>
-		  
-		  <li class="nav-item">
-            <a href="<c:url value='/qna/list.do'/>" class="nav-link">
-              <i class="nav-icon fas fa-comments"></i>
-              <p>
-				Q&A 게시판
-              </p>
-            </a>
-          </li>
-		  
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+		<div class="form-inline">
+		
+			<div class="input-group mb-3">
+				<input name="company_name_keyword" class="form-control" type="search" placeholder="거래처 검색" autocomplete="off">
+			</div>
+			
+			<div class="w-100 bg-light rounded">
+				<table class="table table-sm table-hover text-nowrap w-100 table-bordered rounded" id="returnSearchCompanyList">
+                  <thead>
+                    <tr class="text-center">
+                      <th>No.</th>
+                      <th>거래처명</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  	<c:forEach var="row_company" items="${searchCompanyList}">
+                   		<tr class="text-center">
+                    		<td>${row_company.COMPANY_IDX }</td>
+                    		<td>${row_company.COMPANY_NAME }</td>
+                    	</tr>
+                    </c:forEach>
+                  </tbody>
+                </table>
+				
+				
+			</div>
+			
+		</div>
+
+	</div>
+	<!-- /.sidebar -->
+</aside>

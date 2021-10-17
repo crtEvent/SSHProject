@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="company">
+	
+	<select id="company.selectCompanyList" resultType="String">
+    	<![CDATA[
+        SELECT NOW()
+        ]]>
+    </select>
+    
+    <select id="company.searchCompanyList" parameterType="String" resultType="hashmap">
+    	<![CDATA[
+		SELECT 
+			COMPANY_IDX, 
+		    COMPANY_NAME,
+    		COMPANY_REG_NUM, 
+    		REPRESENTATIVE, 
+    		ADDRESS1, 
+    		ADDRESS2, 
+    		BUSINESS_CONDITIONS, 
+    		BUSINESS_ITEM, 
+    		TEL,
+    		FAX, 
+    		CP, 
+    		EMAIL, 
+    		REG_DATE
+		FROM ssh_db.company
+		]]>
+		<if test="value != null and value != ''">
+			<![CDATA[
+			WHERE COMPANY_NAME LIKE '%${value}%'
+        	]]>
+        </if>
+    </select>
+    
+
+</mapper>
