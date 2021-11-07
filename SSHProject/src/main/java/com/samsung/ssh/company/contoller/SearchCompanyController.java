@@ -21,22 +21,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.samsung.ssh.company.service.CompanyService;
+import com.samsung.ssh.company.service.SearchCompanyService;
 
 @Controller
-public class CompanyController {
+public class SearchCompanyController {
 	
-Logger log = LoggerFactory.getLogger(this.getClass());
+	Logger log = LoggerFactory.getLogger(this.getClass());
 	
-	@Resource(name="companyService")
-	CompanyService companyService;
+	@Resource(name="searchCompanyService")
+	SearchCompanyService searchCompanyService;
 	
 	@PostMapping(value = "/company/search.do")
 	public String search_company(Model model, RedirectAttributes ridirectAttr,
 			@RequestParam(value="company_name_keyword", required = false) String company_name_keyword) throws Exception {
-		log.debug("1 - company_name_keyword:"+company_name_keyword);
-		ridirectAttr.addAttribute("company_name_keyword",company_name_keyword);
-		log.debug("model.addAttribute");
+		
+		ridirectAttr.addAttribute("company_name_keyword", company_name_keyword);
+		
 		return "redirect:/company/search_result.do";
 	}
 	
@@ -44,8 +44,8 @@ Logger log = LoggerFactory.getLogger(this.getClass());
 	public String search_company_result(Model model, 
 			@RequestParam(value="company_name_keyword", required = false) String company_name_keyword) throws Exception {
 		
-		model.addAttribute("searchCompanyList",companyService.searchCompanyList(company_name_keyword));
-		log.debug("/company/search_result.do: "+company_name_keyword);
+		model.addAttribute("searchCompanyList", searchCompanyService.searchCompanyList(company_name_keyword));
+		
 		return "/company/search_company_result";
 	}
 

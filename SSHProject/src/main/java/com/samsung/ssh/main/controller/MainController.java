@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.samsung.ssh.company.service.CompanyService;
+import com.samsung.ssh.company.service.SearchCompanyService;
 
 @Controller
 public class MainController {
@@ -17,7 +17,7 @@ public class MainController {
 	Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	@Resource(name="companyService")
-	CompanyService companyService;
+	SearchCompanyService companyService;
 	
 	// 메인 페이지
 	@RequestMapping(value = "/main/main.do")

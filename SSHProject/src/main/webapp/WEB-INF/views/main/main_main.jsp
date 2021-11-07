@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>가계부</title>
+<title>SSH ERP</title>
 <%@include file="../include/include_main_head.jsp" %>
 </head>
 <body class="control-sidebar-slide-open layout-fixed">

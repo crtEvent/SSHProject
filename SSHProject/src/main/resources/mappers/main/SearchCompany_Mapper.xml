@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
-<mapper namespace="company">
+<mapper namespace="searchCompany">
 	
-	<select id="company.selectCompanyList" resultType="String">
-    	<![CDATA[
-        SELECT NOW()
-        ]]>
-    </select>
-    
-    <select id="company.searchCompanyList" parameterType="String" resultType="hashmap">
+    <select id="searchCompany.searchCompanyList" parameterType="String" resultType="hashmap">
     	<![CDATA[
 		SELECT 
 			COMPANY_IDX, 

@@ -9,18 +9,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.samsung.ssh.company.dao.CompanyDAO;
+import com.samsung.ssh.company.dao.SearchCompanyDAO;
 
-@Service("companyService")
-public class CompanyService {
+@Service("searchCompanyService")
+public class SearchCompanyService {
 	
 	Logger log = LoggerFactory.getLogger(this.getClass());
 	
-	@Resource(name = "companyDAO")
-	CompanyDAO companyDAO;
+	@Resource(name = "searchCompanyDAO")
+	SearchCompanyDAO searchCompanyDAO;
 	
 	public List<Map<String, Object>> searchCompanyList(String company_name_keyword) throws Exception {
-		return companyDAO.searchCompanyList(company_name_keyword);
+		return searchCompanyDAO.searchCompanyList(company_name_keyword);
 	}
 	
 }
